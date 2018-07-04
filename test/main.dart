@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reflectable_flutter/do_reflect.dart';
 
 void main() => runApp(new MyApp());
 
@@ -93,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             new Text(
-              '$_counter',
+                '$_counter $(doReflect())',
               style: Theme.of(context).textTheme.display1,
             ),
           ],

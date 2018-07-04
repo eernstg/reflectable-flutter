@@ -34,10 +34,12 @@ class A {
   static int namedArguments(int x, int y, {int z: 42}) => x + y - z;
 }
 
-main() {
+String doReflect() {
   // The program execution must start run this initialization before
   // any reflective features can be used.
   initializeReflectable();
+
+  List<String> result = [];
 
   // Get hold of a few mirrors.
   A instance = new A();
@@ -45,30 +47,31 @@ main() {
   ClassMirror classMirror = myReflectable.reflectType(A);
 
   // Invocations of methods accepting positional arguments (printing '42').
-  print(instanceMirror.invoke("arg0", []));
-  print(instanceMirror.invoke("arg1", [84]));
-  print(instanceMirror.invoke("arg1to3", [40, 2]));
-  print(instanceMirror.invoke("arg1to3", [1, -1, 1]));
-  print(instanceMirror.invoke("arg1to3", [21, 21, 0, "foo"]));
+  result.add(instanceMirror.invoke("arg0", []));
+  result.add(instanceMirror.invoke("arg1", [84]));
+  result.add(instanceMirror.invoke("arg1to3", [40, 2]));
+  result.add(instanceMirror.invoke("arg1to3", [1, -1, 1]));
+  result.add(instanceMirror.invoke("arg1to3", [21, 21, 0, "foo"]));
 
-  // Invocations of methods accepting named arguments (printing '42').
-  print(instanceMirror.invoke("argNamed", [55, 29]));
-  print(instanceMirror.invoke("argNamed", [21, 21], {#z: 0}));
+  // Invocations of methods accepting named arguments (result.adding '42').
+  result.add(instanceMirror.invoke("argNamed", [55, 29]));
+  result.add(instanceMirror.invoke("argNamed", [21, 21], {#z: 0}));
 
   // Invocations of operators.
-  print(instanceMirror.invoke("+", [42])); // '84'.
-  print(instanceMirror.invoke("[]", [42])); // '84'.
+  result.add(instanceMirror.invoke("+", [42])); // '84'.
+  result.add(instanceMirror.invoke("[]", [42])); // '84'.
   instanceMirror.invoke("[]=", [1, 2]);
-  print(instance.f); // '3'.
-  print(instanceMirror.invoke("unary-", [])); // '-3'.
-  print(instanceMirror.invoke("~", [])); // '5'.
+  result.add(instance.f); // '3'.
+  result.add(instanceMirror.invoke("unary-", [])); // '-3'.
+  result.add(instanceMirror.invoke("~", [])); // '5'.
 
-  // Similar invocations on static methods (printing '42').
-  print(classMirror.invoke("noArguments", []));
-  print(classMirror.invoke("oneArgument", [84]));
-  print(classMirror.invoke("optionalArguments", [40, 2]));
-  print(classMirror.invoke("optionalArguments", [1, -1, 1]));
-  print(classMirror.invoke("optionalArguments", [21, 21, 0, "foo"]));
-  print(classMirror.invoke("namedArguments", [55, 29]));
-  print(classMirror.invoke("namedArguments", [21, 21], {#z: 0}));
+  // Similar invocations on static methods (result.adding '42').
+  result.add(classMirror.invoke("noArguments", []));
+  result.add(classMirror.invoke("oneArgument", [84]));
+  result.add(classMirror.invoke("optionalArguments", [40, 2]));
+  result.add(classMirror.invoke("optionalArguments", [1, -1, 1]));
+  result.add(classMirror.invoke("optionalArguments", [21, 21, 0, "foo"]));
+  result.add(classMirror.invoke("namedArguments", [55, 29]));
+  result.add(classMirror.invoke("namedArguments", [21, 21], {#z: 0}));
+  return result.toString();
 }
