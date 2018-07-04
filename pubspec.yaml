@@ -1,5 +1,5 @@
-name: flutter_app
-description: A new Flutter project.
+name: reflectable_flutter
+description: A minimal example using reflectable with Flutter.
 
 dependencies:
   flutter:
