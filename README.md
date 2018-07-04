@@ -12,6 +12,5 @@ cd reflectable-flutter
 flutter doctor # just checking
 flutter pub get
 flutter packages pub run build_runner build test
-dart test/reflectable_test.dart
-# Also runnable from Android Studio on an Android device.
+# Runnable from Android Studio on an Android device.
 ```
