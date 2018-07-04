@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:reflectable_flutter/do_reflect.dart';
+import 'main.reflectable.dart';
 
-void main() => runApp(new MyApp());
+void main() {
+  // The program execution must start run this initialization before
+  // any reflective features can be used.
+  initializeReflectable();
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -94,8 +100,11 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             new Text(
-                '$_counter $(doReflect())',
+                '$_counter',
               style: Theme.of(context).textTheme.display1,
+            ),
+            new Text(
+                "${doReflect(_counter)}"
             ),
           ],
         ),
