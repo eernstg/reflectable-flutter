@@ -15,5 +15,6 @@ cd reflectable_flutter
 flutter doctor # just checking
 flutter packages get
 flutter packages pub run build_runner build
+flutter create .
 flutter run
 ```
