@@ -18,12 +18,3 @@ flutter packages pub run build_runner build
 flutter create .
 flutter run
 ```
-
-PS: As of Oct 5th, 2018, it is necessary to add the following
-version override to pubspec.yaml (e.g. at the end), in order
-to allow `build` and Flutter to coexist:
-```
-dependency_overrides:
-  analyzer: 0.33.0-alpha.0
-```
-
