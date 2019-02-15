@@ -5,10 +5,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: any
-  reflectable:
-    git:
-      url: git://github.com/dart-lang/reflectable.git
-      ref: version_fix_feb19
+  reflectable: any
   build_runner: any
 
 dev_dependencies:
