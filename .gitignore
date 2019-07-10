@@ -7,5 +7,3 @@ build/
 *.iml
 pubspec.lock
 *.reflectable.dart
-ios/
-android/
