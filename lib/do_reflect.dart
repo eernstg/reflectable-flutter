@@ -5,6 +5,9 @@
 // Try out some reflective invocations.
 // Build with `cd ..; pub run build_runner build example`.
 
+import 'dart:ui';
+
+@GlobalQuantifyCapability(r'\.Color$', myReflectable)
 import 'package:reflectable/reflectable.dart';
 
 class MyReflectable extends Reflectable {
@@ -73,4 +76,8 @@ String doReflect(int i) {
   result.add(classMirror.invoke("namedArguments", [21, 21], {#z: i}));
 
   return result.toString();
+
+  // Use a declaration in 'dart:ui'.
+  Color color = Color(0xFF42A5F5);
+  ObjectMirror colorMirror = myReflectable.reflect(color);
 }
