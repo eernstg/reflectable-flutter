@@ -13,8 +13,8 @@ git clone https://github.com/eernstg/reflectable-flutter
 mv reflectable-flutter reflectable_flutter
 cd reflectable_flutter
 flutter doctor # just checking
-flutter packages get
-flutter packages pub run build_runner build
+flutter pub get
+flutter pub run build_runner build
 flutter create .
 flutter run
 ```
