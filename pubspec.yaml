@@ -1,5 +1,7 @@
 name: reflectable_flutter
 description: A minimal example using reflectable with Flutter.
+environment:
+  sdk: '>=2.7.0 <3.0.0'
 
 dependencies:
   flutter:

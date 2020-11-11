@@ -10,5 +10,5 @@ pubspec.lock
 android/.gitignore
 ios/.gitignore
 android/app/src/main/kotlin
-ios/Runner/AppDelegate.swift
-ios/Runner/Runner-Bridging-Header.h
+ios/
+test/
