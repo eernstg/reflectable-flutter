@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             new Text(
                 '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline6,
             ),
             new Text(
                 "${doReflect(_counter)}"
