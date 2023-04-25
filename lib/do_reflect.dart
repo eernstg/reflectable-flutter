@@ -24,28 +24,28 @@ class A {
   int arg0() => value;
   int arg1(int x) => x - value;
   int arg1to3(int x, int y, [int z = 0, w]) => x + y + z * value;
-  int argNamed(int x, int y, {int z: 42}) => x + y - z;
-  int operator +(x) => value + x;
-  int operator [](x) => value + x;
-  void operator []=(x, v) { f = x + v; }
+  int argNamed(int x, int y, {int z = 42}) => x + y - z;
+  int operator +(int x) => value + x;
+  int operator [](int x) => value + x;
+  void operator []=(int x, int v) { f = x + v; }
   int operator -() => -f;
   int operator ~() => f + value;
 
   int f = 0;
 
   static int noArguments() => 42;
-  static int oneArgument(x) => x - 42;
+  static int oneArgument(int x) => x - 42;
   static int optionalArguments(x, y, [z = 0, w]) => x + y + z * 42;
-  static int namedArguments(int x, int y, {int z: 42}) => x + y - z;
+  static int namedArguments(int x, int y, {int z = 42}) => x + y - z;
 }
 
 String doReflect(int i) {
-  List<int> result = [];
+  List<Object?> result = [];
 
   // Get hold of a few mirrors.
   A instance = new A(i);
-  InstanceMirror instanceMirror = myReflectable.reflect(instance);
-  ClassMirror classMirror = myReflectable.reflectType(A);
+  var instanceMirror = myReflectable.reflect(instance);
+  var classMirror = myReflectable.reflectType(A) as ClassMirror;
 
   // Invocations of methods accepting positional arguments.
   result.add(instanceMirror.invoke("arg0", []));
@@ -75,9 +75,10 @@ String doReflect(int i) {
   result.add(classMirror.invoke("namedArguments", [55, 29 + i]));
   result.add(classMirror.invoke("namedArguments", [21, 21], {#z: i}));
 
-  return result.toString();
-
   // Use a declaration in 'dart:ui'.
   Color color = Color(0xFF42A5F5);
+  // ignore: unused_local_variable
   ObjectMirror colorMirror = myReflectable.reflect(color);
+
+  return result.toString();
 }

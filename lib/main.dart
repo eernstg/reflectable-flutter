@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({super.key, this.title = ''});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             new Text(
                 '$_counter',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
             new Text(
                 "${doReflect(_counter)}"
