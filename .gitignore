@@ -10,6 +10,7 @@ pubspec.lock
 *.reflectable.dart
 android/.gitignore
 ios/.gitignore
+android/local.properties
 android/app/src/main/kotlin
 ios/
 test/
