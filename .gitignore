@@ -14,3 +14,7 @@ android/local.properties
 android/app/src/main/kotlin
 ios/
 test/
+linux/
+macos/
+web/
+windows/
