@@ -1,7 +1,7 @@
 name: reflectable_flutter
 description: A minimal example using reflectable with Flutter.
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.6.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -10,10 +10,6 @@ dependencies:
   reflectable: any
   build_runner: any
   built_value_generator: any
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
 
 flutter:
   uses-material-design: true
